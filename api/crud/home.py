@@ -236,7 +236,7 @@ async def get_home_image(db: Session, home_id: str):
     print(image_url)
     if image_url is None:
         return None
-    db_home.images = json.dumps([image_url])
+    db_home.images = json.dumps(image_url)
     db.commit()
     db.refresh(db_home)
     print(image_url)
