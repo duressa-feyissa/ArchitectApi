@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel
 
 class UserBase(BaseModel):
@@ -29,8 +29,8 @@ class HomeBase(BaseModel):
         arbitrary_types_allowed=True
 
 class HomeCreate(HomeBase):
-    future_proofing: list[str]
-    cultural_religious: list[str]
+    future_proofing: List[str]
+    cultural_religious: List[str]
     budget_range: str
     family_size: str
     security_safety: str
@@ -45,8 +45,8 @@ class HomeCreate(HomeBase):
     construction_phasing: str
 
 class HomeUpdate(HomeBase):
-    future_proofing: list[str]
-    cultural_religious: list[str]
+    future_proofing: List[str]
+    cultural_religious: List[str]
     budget_range: str
     family_size: str
     security_safety: str
@@ -65,7 +65,7 @@ class BusinessCreate(HomeBase):
     building_purpose: str
     total_square_footage: str
     architectural_style: str
-    sustainability_goals: list[str]
+    sustainability_goals: List[str]
     number_of_floors: str
     zoning_constraints: str
     number_of_occupants: str
@@ -74,7 +74,7 @@ class BusinessCreate(HomeBase):
     amenities: str
     parking_spaces: str
     interior_exterior_ambiance: str
-    design_inspirations: list[str]
+    design_inspirations: List[str]
     technology_integration: str
     weather_site_challenges: str
     construction_phasing: str
@@ -84,7 +84,7 @@ class BusinessUpdate(HomeBase):
     building_purpose: str
     total_square_footage: str
     architectural_style: str
-    sustainability_goals: list[str]
+    sustainability_goals: List[str]
     number_of_floors: str
     zoning_constraints: str
     number_of_occupants: str
@@ -93,7 +93,7 @@ class BusinessUpdate(HomeBase):
     amenities: str
     parking_spaces: str
     interior_exterior_ambiance: str
-    design_inspirations: list[str]
+    design_inspirations: List[str]
     technology_integration: str
     weather_site_challenges: str
     construction_phasing: str
