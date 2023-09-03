@@ -1,6 +1,6 @@
-fastapi[all]
+FastAPI
 pydantic
 typing
 openai
 SQLAlchemy
-mysqlpy
+pymysql
