@@ -24,9 +24,6 @@ app.add_middleware(
 
 models.Base.metadata.create_all(bind=engine)
 
-
-app = FastAPI()
-
 app.include_router(home_router, prefix="/api/v1", tags=["homes"])
 app.include_router(user_router, prefix="/api/v1", tags=["users"]) 
 
