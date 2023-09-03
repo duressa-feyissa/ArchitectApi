@@ -39,6 +39,7 @@ class Home(Base):
     context = Column(LONGTEXT, nullable=True)
     user = relationship("User", back_populates="homes")
     images = Column(JSON, nullable=True)
+    chat = Column(JSON, nullable=True)
 
     def toJSON(self):
         return {

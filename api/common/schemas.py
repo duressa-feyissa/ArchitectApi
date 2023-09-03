@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 
 class Chat(BaseModel):
-    chat: List[str]
+    chat: str
     class Config:
         arbitrary_types_allowed=True
 
