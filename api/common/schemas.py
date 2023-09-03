@@ -1,6 +1,12 @@
 from typing import Optional, List
 from pydantic import BaseModel
 
+
+class Chat(BaseModel):
+    chat: List[str]
+    class Config:
+        arbitrary_types_allowed=True
+
 class UserBase(BaseModel):
     email: str
     firstname: str
