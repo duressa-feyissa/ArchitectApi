@@ -47,7 +47,7 @@ class Home(Base):
             "home_type": self.home_type,
             "user_id": self.user_id,
             "data": self.data,
-            "images": json.loads(self.images)
+            "images": json(self.images) if self.images is not None else [],
         }
 
     def __repr__(self):
