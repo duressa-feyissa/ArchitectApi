@@ -12,22 +12,22 @@ async def create_business_home(db: Session, home: BusinessCreate, user_id: str =
         return None   
     
     user_ansewr = {
-        "building_purpose": home.building_purpose,
-        "total_square_footage": home.total_square_footage,
-        "architectural_style": home.architectural_style,
-        "sustainability_goals": home.sustainability_goals,
-        "number_of_floors": home.number_of_floors,
-        "zoning_constraints": home.zoning_constraints,
-        "number_of_occupants": home.number_of_occupants,
-        "specialized_spaces_required": home.specialized_spaces_required,
-        "accessibility_requirements": home.accessibility_requirements,
-        "amenities": home.amenities,
-        "parking_spaces": home.parking_spaces,
-        "interior_exterior_ambiance": home.interior_exterior_ambiance,
-        "design_inspirations": home.design_inspirations,
-        "technology_integration": home.technology_integration,
-        "weather_site_challenges": home.weather_site_challenges,
-        "construction_phasing": home.construction_phasing
+        "question1": home.question1,
+        "question2": home.question2,
+        "question3": home.question3,
+        "question4": home.question4,
+        "question5": home.question5,
+        "question6": home.question6,
+        "question7": home.question7,
+        "question8": home.question8,
+        "question9": home.question9,
+        "question10": home.question10,
+        "question11": home.question11,
+        "question12": home.question12,
+        "question13": home.question13, 
+        "question14": home.question14,
+        "question15": home.question15,
+        
     }
     
     respose = generate_bunisess_design_response(user_ansewr) 
@@ -52,24 +52,25 @@ async def create_home(db: Session, home: HomeCreate, user_id: str = None):
     if home.type != "home":
         return None
     
-    user_answer = {
-        "future_proofing": home.future_proofing,
-        "cultural_religious": home.cultural_religious,
-        "budget_range": home.budget_range,
-        "family_size": home.family_size,
-        "security_safety": home.security_safety,
-        "outdoor_spaces": home.outdoor_spaces,
-        "vehicles_parking": home.vehicles_parking,
-        "budget_allocation": home.budget_allocation,
-        "home_space": home.home_space,
-        "atmosphere_ambiance": home.atmosphere_ambiance,
-        "design_inspirations": home.design_inspirations,
-        "smart_home_technology": home.smart_home_technology,
-        "weather_concerns": home.weather_concerns,
-        "construction_phasing": home.construction_phasing
+    user_ansewr = {
+        "question1": home.question1,
+        "question2": home.question2,
+        "question3": home.question3,
+        "question4": home.question4,
+        "question5": home.question5,
+        "question6": home.question6,
+        "question7": home.question7,
+        "question8": home.question8,
+        "question9": home.question9,
+        "question10": home.question10,
+        "question11": home.question11,
+        "question12": home.question12,
+        "question13": home.question13, 
+        "question14": home.question14
+        
     }
         
-    respose = generate_home_design_response(user_answer)
+    respose = generate_home_design_response(user_ansewr)
     
     if respose is None:
         return None
@@ -96,24 +97,26 @@ async def get_homes(db: Session, skip: int = 0, limit: int = 100, user_id: str =
     return db.query(models.Home).filter(models.Home.user_id == user_id).offset(skip).limit(limit).all()
 
 async def update_home(db: Session, home: HomeUpdate, home_id: str):
-    user_answer = {
-        "future_proofing": home.future_proofing,
-        "cultural_religious": home.cultural_religious,
-        "budget_range": home.budget_range,
-        "family_size": home.family_size,
-        "security_safety": home.security_safety,
-        "outdoor_spaces": home.outdoor_spaces,
-        "vehicles_parking": home.vehicles_parking,
-        "budget_allocation": home.budget_allocation,
-        "home_space": home.home_space,
-        "atmosphere_ambiance": home.atmosphere_ambiance,
-        "design_inspirations": home.design_inspirations,
-        "smart_home_technology": home.smart_home_technology,
-        "weather_concerns": home.weather_concerns,
-        "construction_phasing": home.construction_phasing
+    user_ansewr = {
+        "question1": home.question1,
+        "question2": home.question2,
+        "question3": home.question3,
+        "question4": home.question4,
+        "question5": home.question5,
+        "question6": home.question6,
+        "question7": home.question7,
+        "question8": home.question8,
+        "question9": home.question9,
+        "question10": home.question10,
+        "question11": home.question11,
+        "question12": home.question12,
+        "question13": home.question13, 
+        "question14": home.question14
+
+        
     }
     db_home = db.query(models.Home).filter(models.Home.id == home_id).first()
-    response = generate_home_design_response(user_answer)
+    response = generate_home_design_response(user_ansewr)
     if response is None:
         return None
     db_home.title = home.title
@@ -124,26 +127,26 @@ async def update_home(db: Session, home: HomeUpdate, home_id: str):
     return db_home.toJSON()
 
 async def update_business_home(db: Session, home: BusinessCreate, home_id: str):
-    user_answer = {
-        "building_purpose": home.building_purpose,
-        "total_square_footage": home.total_square_footage,
-        "architectural_style": home.architectural_style,
-        "sustainability_goals": home.sustainability_goals,
-        "number_of_floors": home.number_of_floors,
-        "zoning_constraints": home.zoning_constraints,
-        "number_of_occupants": home.number_of_occupants,
-        "specialized_spaces_required": home.specialized_spaces_required,
-        "accessibility_requirements": home.accessibility_requirements,
-        "amenities": home.amenities,
-        "parking_spaces": home.parking_spaces,
-        "interior_exterior_ambiance": home.interior_exterior_ambiance,
-        "design_inspirations": home.design_inspirations,
-        "technology_integration": home.technology_integration,
-        "weather_site_challenges": home.weather_site_challenges,
-        "construction_phasing": home.construction_phasing
+    user_ansewr = {
+        "question1": home.question1,
+        "question2": home.question2,
+        "question3": home.question3,
+        "question4": home.question4,
+        "question5": home.question5,
+        "question6": home.question6,
+        "question7": home.question7,
+        "question8": home.question8,
+        "question9": home.question9,
+        "question10": home.question10,
+        "question11": home.question11,
+        "question12": home.question12,
+        "question13": home.question13, 
+        "question14": home.question14,
+        "question15": home.question15,
+        
     }
     db_home = db.query(models.Home).filter(models.Home.id == home_id).first()
-    response = generate_bunisess_design_response(user_answer)
+    response = generate_bunisess_design_response(user_ansewr)
     if response is None:
         return None
     db_home.title = home.title
