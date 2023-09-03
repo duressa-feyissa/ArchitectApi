@@ -1,1 +1,6 @@
 fastapi[all]
+pydantic
+typing
+openai
+SQLAlchemy
+mysqlpy
