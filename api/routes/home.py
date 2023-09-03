@@ -87,4 +87,14 @@ async def get_home_summary(home_id: str, db: Session = Depends(get_db)):
     if db_home is None:
         raise HTTPException(status_code=404, detail="Home not found")
     return await crud.get_home_summary(db=db, home_id=home_id)
+
+@router.get("/homes/{home_id}/chat")
+async def get_home_chat(home_id: str, db: Session = Depends(get_db)):
+    db_home = await crud.get_home(db, home_id=home_id)
+    if db_home is None:
+        raise HTTPException(status_code=404, detail="Home not found")
+    return await crud.get_home_chat(db=db, home_id=home_id)
+
+
+
     

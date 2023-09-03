@@ -1,3 +1,4 @@
+import json
 from sqlalchemy import Column, String, ForeignKey,JSON, Enum
 from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlalchemy.orm import relationship
@@ -46,7 +47,7 @@ class Home(Base):
             "home_type": self.home_type,
             "user_id": self.user_id,
             "data": self.data,
-            "images": self.images,
+            "images": json.loads(self.images)
         }
 
     def __repr__(self):

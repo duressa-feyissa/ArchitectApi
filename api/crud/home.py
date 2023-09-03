@@ -1,4 +1,3 @@
-
 import json
 from uuid import uuid4
 from sqlalchemy.orm import Session
@@ -242,5 +241,7 @@ async def get_home_image(db: Session, home_id: str):
     db.refresh(db_home)
     print(image_url)
     return db_home.toJSON()
+    
+    
     
     
