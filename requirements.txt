@@ -4,3 +4,4 @@ typing
 openai
 SQLAlchemy
 pymysql
+uvicorn
