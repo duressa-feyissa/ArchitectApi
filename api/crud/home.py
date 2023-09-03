@@ -1,9 +1,11 @@
+
 import json
 from uuid import uuid4
 from sqlalchemy.orm import Session
 from api.chat.home import generate_home_design_response
 from api.chat.business import generate_bunisess_design_response
 from api.common import models
+from api.common.image import get_image
 from api.common.schemas import HomeCreate, HomeUpdate, BusinessCreate
 
 
@@ -226,4 +228,19 @@ def generate_prompt_for_image(project):
     
     return summary
 
-
+async def get_home_image(db: Session, home_id: str):
+    db_home = db.query(models.Home).filter(models.Home.id == home_id).first()
+    if db_home is None:
+        return None
+    prompt =  generate_prompt_for_image(db_home.toJSON())
+    image_url = await get_image(prompt)
+    print(image_url)
+    if image_url is None:
+        return None
+    db_home.images = json.dumps([image_url])
+    db.commit()
+    db.refresh(db_home)
+    print(image_url)
+    return db_home.toJSON()
+    
+    

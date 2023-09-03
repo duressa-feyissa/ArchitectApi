@@ -37,6 +37,7 @@ class Home(Base):
     data = Column(JSON, nullable=True)
     context = Column(LONGTEXT, nullable=True)
     user = relationship("User", back_populates="homes")
+    images = Column(JSON, nullable=True)
 
     def toJSON(self):
         return {
@@ -45,6 +46,7 @@ class Home(Base):
             "home_type": self.home_type,
             "user_id": self.user_id,
             "data": self.data,
+            "images": self.images,
         }
 
     def __repr__(self):

@@ -67,6 +67,13 @@ async def update_business_home(home_id: str, home: schemas.BusinessUpdate, db: S
         raise HTTPException(status_code=400, detail="Home not updated")
     return response
 
+@router.get("/homes/{home_id}/image")
+async def get_home_image(home_id: str, db: Session = Depends(get_db)):
+    db_home = await crud.get_home(db, home_id=home_id)
+    if db_home is None:
+        raise HTTPException(status_code=404, detail="Home not found for image")
+    return await crud.get_home_image(db=db, home_id=home_id)
+
 @router.delete("/homes/{home_id}")
 async def delete_home(home_id: str, db: Session = Depends(get_db)):
     db_home = await crud.get_home(db, home_id=home_id)
