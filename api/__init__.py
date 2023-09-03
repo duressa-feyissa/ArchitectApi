@@ -8,17 +8,12 @@ import os
 PORT = os.getenv("PORT", 8000)
 app = FastAPI()
 
-origins = [
-    "http://localhost",
-    f"http://localhost:{PORT}",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],    
+    allow_headers=["*"],    
 )
 
 
